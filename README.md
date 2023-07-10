@@ -11,3 +11,5 @@ To Do Liste
 - Additional Features (Spellchecker, recommendations, etc.)
 
 - Dokumentation 
+
+Das ist eine schöne Liste!
