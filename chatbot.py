@@ -9,6 +9,7 @@ import re
 from typing import Optional, Union
 import pickle
 import sklearn
+from Cleaner import clean_text 
 
 
 with open("Pickles/LR_Model", "rb") as f:
@@ -190,7 +191,7 @@ class Chatbot:
             return "joke", None
         
         if re.match(r"sentiment", user_input):
-            return "sentiment", "very much user input"
+            return "sentiment", "I hated this movie what a dumb movie"
         
         if re.match(r"history", user_input):
             return "history", None
@@ -216,14 +217,21 @@ class Chatbot:
             self.play_video(self.video_locations["idle"], message=self.get_sentence("print_joke"))
 
         if task == "sentiment":
-            sentiment = random.choice(["sentiment_positiv", "sentiment_negativ"])
+            text_clean = clean_text(context)
+            text_vectorized = vectorizer.transform([text_clean])
+            prediction = nb_model.predict(text_vectorized)
+            if prediction == 1:
+                sentiment = "sentiment_positiv"
+            else:
+                sentiment = "sentiment_negativ"
+
             if sentiment == "sentiment_negativ":
                 sent_query = "sentiment_query_neg"
             else:
                 sent_query = "sentiment_query_pos"
             sentence = self.get_sentence(sentiment)
             new_sentence = re.sub(r"\$input_user\$", context, sentence)
-            # self.play_video(self.video_locations["read"], message=new_sentence + "\n" + self.get_sentence(sent_query))
+            self.play_video(self.video_locations["read"], message=new_sentence + "\n" + self.get_sentence(sent_query))
             print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], new_sentence + "\n" + self.get_sentence(sent_query)))
             while True:
                 print("\x1b[42;40m\n")
@@ -253,7 +261,7 @@ class Chatbot:
 
     def start_loop(self):
         
-        # self.print_welcome_message()
+        self.print_welcome_message()
 
         print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
         print("\x1b[42;40m\n")

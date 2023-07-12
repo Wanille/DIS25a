@@ -1,10 +1,11 @@
-import pandas as pd
 import nltk
 from bs4 import BeautifulSoup
 import re
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
-from nltk.stem import LancasterStemmer,WordNetLemmatizer
+
+nltk.download('stopwords')
+nltk.download('punkt')
 
 tokenizer=ToktokTokenizer()
 
@@ -32,7 +33,6 @@ def simple_stemmer(text):
     text= ' '.join([ps.stem(word) for word in text.split()])
     return text
 
-''' Does not Work calling it from here, dont know why
 
 tokenizer=ToktokTokenizer()
 stopword_list=nltk.corpus.stopwords.words('english')
@@ -47,4 +47,11 @@ def remove_stopwords(text, is_lower_case=False):
         filtered_tokens = [token for token in tokens if token.lower() not in stopword_list]
     filtered_text = ' '.join(filtered_tokens)    
     return filtered_text
-'''
+
+
+
+def clean_text(text):
+    text = denoise_text(text)
+    text = remove_stopwords(text)
+    text = simple_stemmer(text)
+    return text
