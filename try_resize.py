@@ -7,6 +7,7 @@ import textwrap
 term_size = os.get_terminal_size()
 
 
+
 def pad_image(image, height_term, width_term, message=None):
     image = image.split("\n")[:-1]
 
@@ -87,14 +88,24 @@ while term_size.lines != 45 or term_size.columns != 130:
 
 print(pad_message(term_size.columns, term_size.lines, "Welcome to the chatbot!"))
 time.sleep(2)
-play_video("animations/arrival/", fps=12)
+if os.name == "nt":
+    play_video("animations/windows/arrival/", fps=12)
+    print(pad_image(open("animations/windows/clippy_idle.txt", "r").read(), 42, 130, "Hello, I am Clippy! I am here to help you with your work! What is your name?"))  
+    print("\x1b[42;40m\n")
+    input("\x1b[38;5;118m>>> \x1b[37;40m")
+    print(pad_image(open("animations/windows/clippy_idle.txt", "r").read(), 42, 130, "Too long didn't read! I will call you 'User'!"))  
+    print("\x1b[42;40m\n")
+    input("\x1b[38;5;118m>>> \x1b[37;40m")
+else:
+    play_video("animations/arrival/", fps=12)
+    print(pad_image(open("animations/clippy_idle.txt", "r").read(), 42, 130, "Hello, I am Clippy! I am here to help you with your work! What is your name?"))  
+    print("\x1b[42;40m\n")
+    input("\x1b[38;5;118m>>> \x1b[37;40m")
+    print(pad_image(open("animations/clippy_idle.txt", "r").read(), 42, 130, "Too long didn't read! I will call you 'User'!"))  
+    print("\x1b[42;40m\n")
+    input("\x1b[38;5;118m>>> \x1b[37;40m")
 time.sleep(1)
-print(pad_image(open("animations/clippy_idle.txt", "r").read(), 42, 130, "Hello, I am Clippy! I am here to help you with your work! What is your name?"))  
-print("\x1b[42;40m\n")
-input("\x1b[38;5;118m>>> \x1b[37;40m")
-print(pad_image(open("animations/clippy_idle.txt", "r").read(), 42, 130, "Too long didn't read! I will call you 'User'!"))  
-print("\x1b[42;40m\n")
-input("\x1b[38;5;118m>>> \x1b[37;40m")
+
 
 
 # play_video("nggyu/txt_convert", fps=12)
