@@ -1,0 +1,11 @@
+certifi==2023.5.7
+charset-normalizer==3.2.0
+climage==0.1.3
+idna==3.4
+kdtree==0.16
+Pillow==10.0.0
+playsound==1.3.0
+requests==2.31.0
+termcolor==2.3.0
+tmdbv3api==1.7.7
+urllib3==2.0.3
