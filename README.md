@@ -2,19 +2,19 @@
 
 To Do Liste
 
-* Anfrage-Set erstellen für Chatbot
+* Anfrage-Set erstellen für Chatbot - Check
 * Regex schreiben für Anfragen-Matching
-* Anwort-Set schreiben für Chatbot
-* Sentiment-Classifier auswählen + trainieren (bspw. Naive Bayes, Logistic Regression)
-* Evaluation von Sentiment-Classifier (Precision, Recall, F1, Accuracy)
+* Anwort-Set schreiben für Chatbot - Check
+* Sentiment-Classifier auswählen + trainieren (bspw. Naive Bayes, Logistic Regression) - Check
+* Evaluation von Sentiment-Classifier (Precision, Recall, F1, Accuracy) - Check
 * Overlay um Ausgabe schön zu machen (Smileys, Farbiger Output, Bilder/Grafiken einfügen)
 * Additional Features
   * Spellchecker
-  * recommendations
-  * too long message
-  * jokes
-  * Folgefragen
-  * Error message und neustart 
+  * recommendations - Check
+  * too long message - Check
+  * jokes - Check
+  * Folgefragen - Check
+  * Error message und neustart  - Check
 
 * Dokumentation
   * Description of IMDB dataset
@@ -24,4 +24,3 @@ To Do Liste
   * Integration from sentiment analysis into chatbot
   * Discussion
 
-Das ist eine schöne Liste!
