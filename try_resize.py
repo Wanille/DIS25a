@@ -80,11 +80,7 @@ def pad_message(width, height, message):
 
 
 
-while term_size.lines != 45 or term_size.columns != 130:
-    os.system("clear")
-    term_size = os.get_terminal_size()
-    print(pad_message(term_size.columns, term_size.lines, f"Window size {term_size.columns}x{term_size.lines} please resize to 130x45"))
-    time.sleep(1)
+
 
 print(pad_message(term_size.columns, term_size.lines, "Welcome to the chatbot!"))
 time.sleep(2)
