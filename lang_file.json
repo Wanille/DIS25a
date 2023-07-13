@@ -1,0 +1,101 @@
+{
+    "welcome_message": [
+        "Hello and welcome to your Movie-Chatbot \"Clippy\". I'm here to perform different tasks for you. You can ask me something about the following topics:\nPlease keep in mind that you have to write the sentences like shown. If you want to add some free text you have to use quotation marks where indicated.\nGot more questions about my functionality or need help, just type help.\n1. Analyse the following sentiment \"your text\"\n2. Recommend me a movie with $actor$ \n3. Recommend me a movie under $length$ playtime\n4. Recommend me a movie which got at least $views$ views.\n5. Recommend me top three movies from genre $genre$.\n6. Tell me a joke\n7. help\n8. quit"
+    ],
+    "help_message": [
+        "You are looking for help, I will provide you with everything you need!\n\nLet's start with my basic functionality:\n-with \"quit\" you end my services\n-with \"help\" you call up the help (but you apparently already know that)\n\nIn addition, I can determine the sentiment of a sentence you have entered:\nTo do this, type the following sentence into the input and add the sentence you want me to analyse in the quotation marks:\n-Analyse the following sentiment: \"your text\"\n(Keep in mind that you have to enter this command exactly like shown and omit \"-\".)\n\nAs an extra feature, I can tell you a joke.\n-you simply write \"Tell me a joke\" in the input field and you'll laugh your ass off"
+    ],
+    "goodbye_message": [
+        "Thanks for using me It was my honor to give you movie suggestions. ",
+        "Goodbye your ChatBot \"Clippy\".",
+        "If we don't go blind, we'll see each other another time.",
+        "\"After all, tomorrow is another day!\u201d - Scarlett O\u2019Hara (Vivien Leigh) in Gone with the Wind (1939)",
+        "\u201cI\u2019ll be back\u201d - The Terminator (Arnold Schwarzenegger) in The Terminator (1984)",
+        "See you later alligator"
+    ],
+    "": [],
+    "error_message": [
+        "I did not get the task. I apoligze and restart my programs. Please insert your question again.",
+        "An error occur. Please type your question again.",
+        "ERROR-ERROR-ERROR.. No answer were found. Please ask your question again.",
+        "Error 404 - ChatBot not found. Pleas try again",
+        "It seems that I know everything but I'm stuck at my research. Please try again in a while."
+    ],
+    "sentiment_positiv": [
+        "My sentiment analyse about your input \"$input_user$ is positiv."
+    ],
+    "sentiment_query_pos": [
+        "Do you agree with me that the sentiment is positive?\nPress  \"1\" for Yes\nPress \"2\" for No \n"
+    ],
+    "sentiment_query_pos_1": [
+        "Great, we got the same opinion on that one!"
+    ],
+    "sentiment_query_pos_2": [
+        "It must be my fault, I need to do more training to get everything right. Thanks for your help!"
+    ],
+    "sentiment_negativ": [
+        "My sentiment analyse about your input \"$input_user$ is negativ."
+    ],
+    "sentiment_query_neg": [
+        "Do you agree with me that the sentiment is negative?\nPress  \"1\" for Yes\nPress \"2\" for No \n"
+    ],
+    "sentiment_query_neg_1": [
+        "Great, we got the same opinion on that one!"
+    ],
+    "sentiment_query_neg_2": [
+        "It must be my fault, I need to do more training to get everything right. Thanks for your help!"
+    ],
+    "print_joke": [
+        "Why don\u2019t scientists trust atoms? Because they make up everything.",
+        "Why don\u2019t eggs tell jokes? They\u2019d crack each other up.",
+        "Why don\u2019t some couples go to the gym? Because some relationships don\u2019t work out.",
+        "Did you hear about the mathematician who\u2019s afraid of negative numbers? He will stop at nothing to avoid them.",
+        "Why was the math book sad? Because it had too many problems.",
+        "Why don\u2019t oysters share their pearls? Because they\u2019re shellfish.",
+        "Did you hear about the claustrophobic astronaut? He just needed a little space.",
+        "Did you hear about the first restaurant to open on the moon?\u00a0It had great food, but no atmosphere",
+        "Do you want to hear a construction joke?\u00a0Sorry, I\u2019m still working on it",
+        "Why did the invisible man turn down the job offer? He couldn\u2019t see himself doing it.",
+        "Did you hear about the kidnapping at the playground? They woke up.",
+        "What do dentists call their x-rays? Tooth pics",
+        "How does a penguin build its house? Igloos it together.",
+        "Did you hear about the Italian chef that died? He pasta way.",
+        "Why did the chicken cross the playground? To get to the other slide.",
+        "What do you call a fake noodle? An impasta.",
+        "What do you call an alligator in a vest? An investigator.",
+        "What do you call a pile of cats? A meowtain.",
+        "What do you call a fish with two knees? A two-knee fish!",
+        "What do you call a belt made out of watches? A waist of time.",
+        "What do you call a bear with no teeth? A gummy bear!",
+        "What do you call a camel with three humps? Pregnant!",
+        "What do you call a cow that can play an instrument? A moosical genius!",
+        "What do you call a deer with no eyes? No idea!",
+        "What do you call a dog magician? A labracadabrador!",
+        "What do you call a duck that gets all A\u2019s? A wise quacker!",
+        "Why don\u2019t data scientists like to swim in the ocean? Because they might encounter a sea of correlation without causation",
+        "What do you call a fish that wears a bowtie? Sofishticated!",
+        "What do you call a fly without wings? A walk!",
+        "What do you call a frog that\u2019s illegally parked? Toad!",
+        "Why was the data scientist angry at his computer? Because it refused to give him a byte to eat!"
+    ],
+    "recommend_movie_actor": [
+        "Here is a movie with $actor$: $movie_rec$.",
+        "Sure, I got you. \u00a7movie_rec$ is a recommended movie with $actor$.",
+        "Let me think about it. From my perspective $movie_rec$ is worth watching."
+    ],
+    "recommend_movie_playtime": [
+        "For a movie with less than $length$ playtime I recommend $movie_rec$",
+        "Quick an dirty: $movie_rec$",
+        "For just $length$ I recommend $movie_rec$"
+    ],
+    "Movie which was shown by at least $views$ people.": [
+        "For a movie which got a minimum of $views$ I recommend $movie_rec$",
+        "I can recommend you $movie_rec$ with a total of $views$ views.",
+        "With a huge amount of $views$ views I recmommend $move_rec$"
+    ],
+    "Top three movies from genre $genre$.": [
+        "Here are the top three movies of $genre$: $movie_rec1$, $movie_rec2$, $movie_rec3$",
+        "Choose wisely, all three films are impressive: $movie_rec1$, $movie_rec2$, $movie_rec3$",
+        "I enjoyed the following three movies at most: $movie_rec1$, $movie_rec2$, $movie_rec3$"
+    ]
+}
