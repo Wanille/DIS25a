@@ -4,7 +4,6 @@ from pathlib import Path
 import textwrap
 import json
 import random
-from inputimeout import inputimeout
 import re
 from typing import Optional, Union
 import pickle
@@ -193,23 +192,31 @@ class Chatbot:
 
 
     def analyse_input(self, user_input: str):
-        # TODO Analyse input with regex matching
-        if re.match(r"help", user_input):
-            return "help", None
+    
+        # sentiment
+        if (match := re.match(r'^(analyze|evaluate|check|determine|tell me).*:\s?(.+)?((using|with) (nb|lr))$', user_input, re.IGNORECASE)):
+            sentiment_sentence = match.group(2)
+            model = match.group(5)
+            if model not in ["nb", "lr"]:
+                model = None
+            return "sentiment", (sentiment_sentence, model)
         
-        if re.match(r"quit", user_input):
-            return "exit", None
-        
-        if re.match(r"joke", user_input):
+        # jokes
+        elif (match := re.match(r'.*[Jj]oke.*', user_input)):
             return "joke", None
         
-        if re.match(r"sentiment", user_input):
-            return "sentiment", ("I hated this movie what a dumb movie", "nb")
+        # quit
+        elif (match := re.match(r'.*[Qq]uit', user_input)):
+            return "quit", None
         
-        if re.match(r"history", user_input):
-            return "history", None
-        
-        return "error", None
+        # help
+        elif (match := re.match(r'.*[Hh]elp', user_input)):
+            return "help", None
+
+        # error 
+        else:
+            return "error", None
+
 
     def dialog(self, task, context):
         # TODO Craft response with correct output
@@ -255,7 +262,7 @@ class Chatbot:
             else:
                 sent_query = "sentiment_query_pos"
             sentence = self.get_sentence(sentiment)
-            new_sentence = re.sub(r"\$input_user\$", text, sentence)
+            new_sentence = re.sub(r"\$input_user\$", text.rstrip(), sentence)
             self.play_video(self.video_locations["read"], message=new_sentence + "\n" + self.get_sentence(sent_query))
             print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], new_sentence + "\n" + self.get_sentence(sent_query)))
             while True:

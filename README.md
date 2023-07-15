@@ -25,11 +25,14 @@
   * Discussion
 
 ## Todo implementation
-- [ ] add regex
+- [x] add regex
 - [ ] add recommendations
 - [ ] update requirements.txt
 - [ ] add installation script
 - [ ] upload models to sciebo
+- [ ] add check for sentiment without ":"
+- [ ] rewrite the help message with new regex conv for sentiment matching
+
 
 ## 🚀 Features
 - Predict sentiment of Movie Reviews with:
