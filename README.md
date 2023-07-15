@@ -24,6 +24,13 @@
   * Integration from sentiment analysis into chatbot
   * Discussion
 
+## Todo implementation
+- [ ] add regex
+- [ ] add recommendations
+- [ ] update requirements.txt
+- [ ] add installation script
+- [ ] upload models to sciebo
+
 ## 🚀 Features
 - Predict sentiment of Movie Reviews with:
   - naive bayes
