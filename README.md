@@ -27,7 +27,7 @@
 ## Todo implementation
 - [x] add regex
 - [ ] add recommendations
-- [ ] update requirements.txt
+- [x] update requirements.txt
 - [ ] add installation script
 - [ ] upload models to sciebo
 - [ ] add check for sentiment without ":"
