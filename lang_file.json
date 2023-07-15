@@ -6,12 +6,12 @@
         "You are looking for help, I will provide you with everything you need!\n\nLet's start with my basic functionality:\n-with \"quit\" you end my services\n-with \"help\" you call up the help (but you apparently already know that)\n\nIn addition, I can determine the sentiment of a sentence you have entered:\nTo do this, type the following sentence into the input and add the sentence you want me to analyse in the quotation marks:\n-Analyse the following sentiment: \"your text\"\n(Keep in mind that you have to enter this command exactly like shown and omit \"-\".)\n\nAs an extra feature, I can tell you a joke.\n-you simply write \"Tell me a joke\" in the input field and you'll laugh your ass off"
     ],
     "goodbye_message": [
-        "Thanks for using me It was my honor to give you movie suggestions. ",
+        "Thanks for using me It was my honor to give you movie suggestions.",
         "Goodbye your ChatBot \"Clippy\".",
         "If we don't go blind, we'll see each other another time.",
         "\"After all, tomorrow is another day!\u201d - Scarlett O\u2019Hara (Vivien Leigh) in Gone with the Wind (1939)",
         "\u201cI\u2019ll be back\u201d - The Terminator (Arnold Schwarzenegger) in The Terminator (1984)",
-        "See you later alligator"
+        "See you later alligator "
     ],
     "": [],
     "error_message": [
@@ -21,8 +21,11 @@
         "Error 404 - ChatBot not found. Pleas try again",
         "It seems that I know everything but I'm stuck at my research. Please try again in a while."
     ],
+    "start_message": [
+        "Hello, I am Clippy! I am here to help you with your work! What is your name?"
+    ],
     "sentiment_positiv": [
-        "My sentiment analyse about your input \"$input_user$ is positiv."
+        "My sentiment analyse about your input \"$input_user$\" is positiv."
     ],
     "sentiment_query_pos": [
         "Do you agree with me that the sentiment is positive?\nPress  \"1\" for Yes\nPress \"2\" for No \n"
@@ -34,7 +37,7 @@
         "It must be my fault, I need to do more training to get everything right. Thanks for your help!"
     ],
     "sentiment_negativ": [
-        "My sentiment analyse about your input \"$input_user$ is negativ."
+        "My sentiment analyse about your input \"$input_user$\" is negativ."
     ],
     "sentiment_query_neg": [
         "Do you agree with me that the sentiment is negative?\nPress  \"1\" for Yes\nPress \"2\" for No \n"
@@ -85,10 +88,9 @@
     ],
     "recommend_movie_playtime": [
         "For a movie with less than $length$ playtime I recommend $movie_rec$",
-        "Quick an dirty: $movie_rec$",
         "For just $length$ I recommend $movie_rec$"
     ],
-    "Movie which was shown by at least $views$ people.": [
+    "recomment_movie_views": [
         "For a movie which got a minimum of $views$ I recommend $movie_rec$",
         "I can recommend you $movie_rec$ with a total of $views$ views.",
         "With a huge amount of $views$ views I recmommend $move_rec$"
@@ -97,5 +99,33 @@
         "Here are the top three movies of $genre$: $movie_rec1$, $movie_rec2$, $movie_rec3$",
         "Choose wisely, all three films are impressive: $movie_rec1$, $movie_rec2$, $movie_rec3$",
         "I enjoyed the following three movies at most: $movie_rec1$, $movie_rec2$, $movie_rec3$"
+    ],
+    "user_name_message": [
+        "Sorry, your name is too lame. I will call you $user_name$"
+    ],
+    "user_name": [
+        "Captain Jack Sparrow ",
+        "Prof. Albus Percival Wulfric Brian Dumbledore",
+        "Bilbo Baggins",
+        "Tony Montana",
+        "Mary Poppins",
+        "Spongebob Suqarepants",
+        "Dr. Doofenshmirtz",
+        "Forrest Gump",
+        "Darth Vader",
+        "Hans Landa",
+        "Indiana Jones",
+        "Tyler Durden ",
+        "James Bond",
+        "Hannibal Lecter",
+        "Princess Peach ",
+        "Katniss Everdeen",
+        "Miranda Priestly",
+        "Cinderella",
+        "Cersei Lannister",
+        "Codename: Black Mamba "
+    ],
+    "ask_user_name": [
+        "Hey, I'm Clippy! Whats your name?"
     ]
 }

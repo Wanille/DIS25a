@@ -1,7 +1,7 @@
-# Clippy: Your friendly neighborhood chatbot 🤖
+# Clippy: Your friendly neighborhood chatbot 📎
 
-To Do Liste
-
+![clippy-idle](animations/originals/idle.gif)  
+## To Do Liste 📑
 * Anfrage-Set erstellen für Chatbot - Check
 * Regex schreiben für Anfragen-Matching
 * Anwort-Set schreiben für Chatbot - Check
@@ -25,18 +25,20 @@ To Do Liste
   * Discussion
 
 ## 🚀 Features
-- Predict sentiment of Movie Reviews
+- Predict sentiment of Movie Reviews with:
+  - naive bayes
+  - logistic regression
 - Tell you jokes
 - Give movie recommendations based on
- - Actors
- - Runtime
- - ...
+  - Actors
+  - Runtime
+  - ...
 - Is a great companion
 
 
-## ⚙ Installation instructions 
+## 🔌 Installation instructions 
 
-Create new folder `Pickles`.
+Create new folder `Pickles/`.
 ```
 mkdir Pickles
 ```

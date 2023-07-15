@@ -43,6 +43,7 @@ video_folders = {
         "sleepy": "animations/sleepy/",
         "exclamation": "animations/exclamation/",
         "big_eyes": "animations/big_eyes/",
+        "idle_img": "animations/clippy_idle.txt"
     },
     "nt": {
         "arrival": "animations/windows/arrival/",
@@ -55,6 +56,7 @@ video_folders = {
         "sleepy": "animations/windows/sleepy/",
         "exclamation": "animations/windows/exclamation/",
         "big_eyes": "animations/windows/big_eyes/",
+        "idle_img": "animations/windows/clippy_idle.txt"
     }
 }
 
@@ -169,12 +171,23 @@ class Chatbot:
                 print(image_padded)
                 time.sleep(1/fps)
 
+    def assign_username(self):
+        self.user_name = self.get_sentence("user_name")
+        print(self.pad_image(open(self.video_locations["idle_img"], "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("ask_user_name")))
+        time.sleep(1)
+        print("\x1b[42;40m\n")
+        self.user_input = input("\x1b[38;5;118m➜ \x1b[37;40m")
+        username_message = re.sub(r"\$user_name\$", self.user_name, self.get_sentence("user_name_message"))
+        self.play_video(self.video_locations["scratches"], message=username_message)
+        time.sleep(2)
 
     def print_welcome_message(self):
         # TODO Display welcome message with held information about bot
         self.resize_terminal(150, 45)
         self.play_video(self.video_locations["arrival"], message=None)
-        print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
+        time.sleep(1)
+        self.assign_username()
+        print(self.pad_image(open(self.video_locations["idle_img"], "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
         time.sleep(1)
         self.play_video(self.video_locations["point_left"], message=self.get_sentence("welcome_message"))
 
@@ -191,7 +204,7 @@ class Chatbot:
             return "joke", None
         
         if re.match(r"sentiment", user_input):
-            return "sentiment", "I hated this movie what a dumb movie"
+            return "sentiment", ("I hated this movie what a dumb movie", "nb")
         
         if re.match(r"history", user_input):
             return "history", None
@@ -202,9 +215,10 @@ class Chatbot:
         # TODO Craft response with correct output
         if task == "exit":
             message = self.get_sentence("goodbye_message")
-            print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], message))
+            print(self.pad_image(open(self.video_locations["idle_img"], "r").read(), self.term_size[1] - 2, self.term_size[0], message))
             time.sleep(1)
             self.play_video(self.video_locations["exit"], message=message)
+            print("\x1b[42;0m\n")
             os.system("clear")
             os.system("clear")
             exit()
@@ -217,9 +231,20 @@ class Chatbot:
             self.play_video(self.video_locations["idle"], message=self.get_sentence("print_joke"))
 
         if task == "sentiment":
-            text_clean = clean_text(context)
+            text = context[0]
+            model = context[1]
+
+            if model == None:
+                model = "nb"
+            
+            text_clean = clean_text(text)
             text_vectorized = vectorizer.transform([text_clean])
-            prediction = nb_model.predict(text_vectorized)
+            
+            if model == "lr":
+                prediction = lr_model.predict(text_vectorized)
+            elif model == "nb":
+                prediction = nb_model.predict(text_vectorized)
+            
             if prediction == 1:
                 sentiment = "sentiment_positiv"
             else:
@@ -230,12 +255,12 @@ class Chatbot:
             else:
                 sent_query = "sentiment_query_pos"
             sentence = self.get_sentence(sentiment)
-            new_sentence = re.sub(r"\$input_user\$", context, sentence)
+            new_sentence = re.sub(r"\$input_user\$", text, sentence)
             self.play_video(self.video_locations["read"], message=new_sentence + "\n" + self.get_sentence(sent_query))
             print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], new_sentence + "\n" + self.get_sentence(sent_query)))
             while True:
                 print("\x1b[42;40m\n")
-                self.user_input = input("\x1b[38;5;118m>>> \x1b[37;40m")
+                self.user_input = input(f"\x1b[37;40m({self.user_name}) \x1b[38;5;118m➜ \x1b[37;40m")
                 
                 if self.user_input in ["1", "2"]:
                     self.play_video(self.video_locations["idle"], message=self.get_sentence(sent_query + "_" + self.user_input))
@@ -263,17 +288,16 @@ class Chatbot:
         
         self.print_welcome_message()
 
-        print(self.pad_image(open("animations/clippy_idle.txt", "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
+        print(self.pad_image(open(self.video_locations["idle_img"], "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
         print("\x1b[42;40m\n")
-        self.user_input = input("\x1b[38;5;118m>>> \x1b[37;40m")
+        self.user_input = input(f"\x1b[37;40m({self.user_name}) \x1b[38;5;118m➜ \x1b[37;40m")
         self.history["user"].append(self.user_input)
         
         while True:
             todo, context = self.analyse_input(self.user_input)
             self.dialog(todo, context)
             print("\x1b[42;40m\n")
-            self.user_input = input("\x1b[38;5;118m>>> \x1b[37;40m")
-
+            self.user_input = input(f"\x1b[37;40m({self.user_name}) \x1b[38;5;118m➜ \x1b[37;40m")
 
 
 if __name__ == "__main__":
