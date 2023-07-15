@@ -32,6 +32,7 @@
 - [ ] upload models to sciebo
 - [ ] add check for sentiment without ":"
 - [ ] rewrite the help message with new regex conv for sentiment matching
+- [ ] clean repo
 
 
 ## 🚀 Features
