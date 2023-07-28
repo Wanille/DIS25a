@@ -1,0 +1,118 @@
+Aufgaben,Nutzer-Input,Chat Ausgabe,Chat Text,"Variablen from ""Chat Text"""
+General,beim Start,welcome_message,"Hello and welcome to your Movie-Chatbot ""Clippy"". I'm here to perform different tasks for you. You can ask me something about the following topics:
+Please keep in mind that you have to write the sentences like shown. If you want to add some free text you have to use quotation marks where indicated.
+Got more questions about my functionality or need help, just type help.
+1. Analyse the following sentiment ""your text""
+2. Recommend me a movie with $actor$ 
+3. Recommend me a movie under $length$ playtime
+4. Recommend me a movie which got at least $views$ views.
+5. Recommend me top three movies from genre $genre$.
+6. Tell me a joke
+7. help
+8. quit",
+,"""help""",help_message,"You are looking for help, I will provide you with everything you need!
+
+Let's start with my basic functionality:
+-with ""quit"" you end my services
+-with ""help"" you call up the help (but you apparently already know that)
+
+In addition, I can determine the sentiment of a sentence you have entered:
+To do this, type the following sentence into the input and add the sentence you want me to analyse in the quotation marks:
+-Analyse the following sentiment: ""your text""
+(Keep in mind that you have to enter this command exactly like shown and omit ""-"".)
+
+As an extra feature, I can tell you a joke.
+-you simply write ""Tell me a joke"" in the input field and you'll laugh your ass off",
+,"""quit""",goodbye_message,Thanks for using me It was my honor to give you movie suggestions.,
+,,,"Goodbye your ChatBot ""Clippy"".",
+,,,"If we don't go blind, we'll see each other another time.",
+,,,"""After all, tomorrow is another day!” - Scarlett O’Hara (Vivien Leigh) in Gone with the Wind (1939)",
+,,,“I’ll be back” - The Terminator (Arnold Schwarzenegger) in The Terminator (1984),
+,,,See you later alligator ,
+,Error,error_message,I did not get the task. I apoligze and restart my programs. Please insert your question again.,
+,,,An error occur. Please type your question again.,
+,,,ERROR-ERROR-ERROR.. No answer were found. Please ask your question again.,
+,,,Error 404 - ChatBot not found. Pleas try again,
+,,,It seems that I know everything but I'm stuck at my research. Please try again in a while.,
+,,start_message,"Hello, I am Clippy! I am here to help you with your work! What is your name?",
+Sentiment analysis,"Analyse the following sentiment: ""your text""",sentiment_positiv,"My sentiment analyse about your input ""$input_user$"" is positiv.",$input_user$
+,,sentiment_query_pos,"Do you agree with me that the sentiment is positive?
+Press  ""1"" for Yes
+Press ""2"" for No 
+",
+,User presses 1,sentiment_query_pos_1,"Great, we got the same opinion on that one!",$sentiment_query_pos_1$
+,User presses 2,sentiment_query_pos_2,"It must be my fault, I need to do more training to get everything right. Thanks for your help!",$sentiment_query_pos_2$
+,"Analyse the following sentiment: ""your text""",sentiment_negativ,"My sentiment analyse about your input ""$input_user$"" is negativ.",$input_user$
+,,sentiment_query_neg,"Do you agree with me that the sentiment is negative?
+Press  ""1"" for Yes
+Press ""2"" for No 
+",
+,User presses 1,sentiment_query_neg_1,"Great, we got the same opinion on that one!",$sentiment_query_neg_1$
+,User presses 2,sentiment_query_neg_2,"It must be my fault, I need to do more training to get everything right. Thanks for your help!",$sentiment_query_neg_2$
+,,,,
+Movie jokes,Tell me a joke,print_joke,Why don’t scientists trust atoms? Because they make up everything.,
+,,,Why don’t eggs tell jokes? They’d crack each other up.,
+,,,Why don’t some couples go to the gym? Because some relationships don’t work out.,
+,,,Did you hear about the mathematician who’s afraid of negative numbers? He will stop at nothing to avoid them.,
+,,,Why was the math book sad? Because it had too many problems.,
+,,,Why don’t oysters share their pearls? Because they’re shellfish.,
+,,,Did you hear about the claustrophobic astronaut? He just needed a little space.,
+,,,"Did you hear about the first restaurant to open on the moon? It had great food, but no atmosphere",
+,,,"Do you want to hear a construction joke? Sorry, I’m still working on it",
+,,,Why did the invisible man turn down the job offer? He couldn’t see himself doing it.,
+,,,Did you hear about the kidnapping at the playground? They woke up.,
+,,,What do dentists call their x-rays? Tooth pics,
+,,,How does a penguin build its house? Igloos it together.,
+,,,Did you hear about the Italian chef that died? He pasta way.,
+,,,Why did the chicken cross the playground? To get to the other slide.,
+,,,What do you call a fake noodle? An impasta.,
+,,,What do you call an alligator in a vest? An investigator.,
+,,,What do you call a pile of cats? A meowtain.,
+,,,What do you call a fish with two knees? A two-knee fish!,
+,,,What do you call a belt made out of watches? A waist of time.,
+,,,What do you call a bear with no teeth? A gummy bear!,
+,,,What do you call a camel with three humps? Pregnant!,
+,,,What do you call a cow that can play an instrument? A moosical genius!,
+,,,What do you call a deer with no eyes? No idea!,
+,,,What do you call a dog magician? A labracadabrador!,
+,,,What do you call a duck that gets all A’s? A wise quacker!,
+,,,Why don’t data scientists like to swim in the ocean? Because they might encounter a sea of correlation without causation,
+,,,What do you call a fish that wears a bowtie? Sofishticated!,
+,,,What do you call a fly without wings? A walk!,
+,,,What do you call a frog that’s illegally parked? Toad!,
+,,,Why was the data scientist angry at his computer? Because it refused to give him a byte to eat!,
+,,,,
+Movie recommendation,"Recommend me a movie with ""your_actor"" ",recommend_movie,Here is a movie with $actor$: $movie_rec$.,"$actor$ , $movie_rec$"
+,,,"Sure, I got you. §movie_rec$ is a great movie with $actor$.","$movie_rec$ , $actor$"
+,,,Let me think about it. From my perspective $movie_rec$ is worth watching.,$movie_rec$ 
+,,,A great $genre$ movie is $movie_rec$ with $actor$ from $director$.,"$genre$,  $movie_rec$, $actor$, $director$."
+,,,"I think i've watched $movie_rec$ like 5000 times, $actor$ is just sooooo good.","$movie_rec$, $actor$"
+,,,$movie_rec$ must be soo good. I mean it has a metascore of $meta_score$.,"$movie_rec$, $meta_score$"
+,,recommend_movies_3,"Here are the top three movies of $genre$: $movie_rec1$, $movie_rec2$, $movie_rec3$","$genre$ , $movie_rec1$ , $movie_rec2$ , $movie_rec3$"
+,,,"Choose wisely, all three films are impressive: $movie_rec1$, $movie_rec2$, $movie_rec3$","$movie_rec1$ , $movie_rec2$ , $movie_rec3$"
+,,,"I enjoyed the following three movies at most: $movie_rec1$, $movie_rec2$, $movie_rec3$","$movie_rec1$ , $movie_rec2$ , $movie_rec3$"
+,,recommend_movies_5,"$movie_rec1$, $movie_rec2$, $movie_rec3$, $movie_rec4$ and $movie_rec5$ all fit exactly what you are looking for :).","$movie_rec1$, $movie_rec2$, $movie_rec3$, $movie_rec4$, $movie_rec5$ "
+,,,,
+,,,,
+Funny User name,"My Name is ""your name""",user_name_message,"Sorry, your name is too lame. I will call you $user_name$",$user_name$
+,,user_name,Captain Jack Sparrow ,
+,,,Prof. Albus Percival Wulfric Brian Dumbledore,
+,,,Bilbo Baggins,
+,,,Tony Montana,
+,,,Mary Poppins,
+,,,Spongebob Suqarepants,
+,,,Dr. Doofenshmirtz,
+,,,Forrest Gump,
+,,,Darth Vader,
+,,,Hans Landa,
+,,,Indiana Jones,
+,,,Tyler Durden ,
+,,,James Bond,
+,Folgefrage:,,Hannibal Lecter,
+,What is my name?,,Princess Peach ,
+,,,Katniss Everdeen,
+,,,Miranda Priestly,
+,,,Cinderella,
+,,,Cersei Lannister,
+,,,Codename: Black Mamba ,
+,,ask_user_name,"Hey, I'm Clippy! Whats your name?",
