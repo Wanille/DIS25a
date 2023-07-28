@@ -31,9 +31,11 @@
 - [x] update requirements.txt
 - [x] add installation script
 - [x] upload models to sciebo
-- [ ] add check for sentiment without ":"
-- [ ] rewrite the help message with new regex conv for sentiment matching
+- [x] rewrite the help message with new regex conv for sentiment matching
 - [x] clean repo
+- [x] change lang for movie recommender (remove attr specific movie lang)
+- [ ] Test installer script on Mac/Windows(won't work)
+- [x] recommender "using|with" is needed rigth now change regex
 
 
 ## 🚀 Features

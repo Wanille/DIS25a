@@ -1,9 +1,9 @@
 {
     "welcome_message": [
-        "Hello and welcome to your Movie-Chatbot \"Clippy\". I'm here to perform different tasks for you. You can ask me something about the following topics:\nPlease keep in mind that you have to write the sentences like shown. If you want to add some free text you have to use quotation marks where indicated.\nGot more questions about my functionality or need help, just type help.\n1. Analyse the following sentiment \"your text\"\n2. Recommend me a movie with $actor$ \n3. Recommend me a movie under $length$ playtime\n4. Recommend me a movie which got at least $views$ views.\n5. Recommend me top three movies from genre $genre$.\n6. Tell me a joke\n7. help\n8. quit"
+        "Hello and welcome to your Movie-Chatbot \"Clippy\". I'm here to perform different tasks for you. You can ask me something about the following topics:\nPlease keep in mind that you have to write the sentences like shown. \nIf you want to add some free text you have to use a colon(:) where indicated. \nTo give more then one input seperate texts by using attribute1: free text, attribute2: free text\nGot more questions about my functionality or need help, just type help.\n1. Analyse the following sentiment: your text\n2. Recommend me a movie with actor: Brad pitt\n3. Recommend me a movie with director: David fincher\n4. Recommend me a movie with genre: Drama\n5. Recommend me a movie with runtime: 120 (meaning less then)\n6. Recommend me a movie with actor: Brad pitt, director: David fincher\n7. Tell me a joke\n8. help\n9. quit"
     ],
     "help_message": [
-        "You are looking for help, I will provide you with everything you need!\n\nLet's start with my basic functionality:\n-with \"quit\" you end my services\n-with \"help\" you call up the help (but you apparently already know that)\n\nIn addition, I can determine the sentiment of a sentence you have entered:\nTo do this, type the following sentence into the input and add the sentence you want me to analyse in the quotation marks:\n-Analyse the following sentiment: \"your text\"\n(Keep in mind that you have to enter this command exactly like shown and omit \"-\".)\n\nAs an extra feature, I can tell you a joke.\n-you simply write \"Tell me a joke\" in the input field and you'll laugh your ass off"
+        "You are looking for help, I will provide you with everything you need!\n\nLet's start with my basic functionality:\n-with \"quit\" you end my services\n-with \"help\" you call up the help (but you apparently already know that)\n\nIn addition, I can determine the sentiment of a sentence you have entered:\nTo do this, type the following sentence into the input and add the sentence you want me to analyse after a colon:\n-Analyse the following sentiment: your text\n-Analyse the sentiment of: your text using (lr(logistic regression)|nb(naive bayes))\n(Keep in mind that you have to enter this command exactly like shown)\n\nI can also recommend you a movie:\nTo do this, type the following sentence into the input and add the sentence you want me to analyse after a colon:\n-Recommend me a movie with actor: your text\nYou can also add more parameters to the command:\n-Recommend me a movie with actor: (only one), runtime: (less then x), genre: your text, year: (till 2020), rating: (up to 5), director: (only one)\n(Keep in mind that you have to enter this command exactly like shown, also dont make it too complicated, I'm not that smart)\n\nAs an extra feature, I can tell you a joke.\n-you simply write \"Tell me a joke\" in the input field and you'll laugh your ass off"
     ],
     "goodbye_message": [
         "Thanks for using me It was my honor to give you movie suggestions.",
@@ -81,24 +81,24 @@
         "What do you call a frog that\u2019s illegally parked? Toad!",
         "Why was the data scientist angry at his computer? Because it refused to give him a byte to eat!"
     ],
-    "recommend_movie_actor": [
+    "recommend_movie": [
         "Here is a movie with $actor$: $movie_rec$.",
-        "Sure, I got you. \u00a7movie_rec$ is a recommended movie with $actor$.",
-        "Let me think about it. From my perspective $movie_rec$ is worth watching."
+        "Sure, I got you. \u00a7movie_rec$ is a great movie with $actor$.",
+        "Let me think about it. From my perspective $movie_rec$ is worth watching.",
+        "A great $genre$ movie is $movie_rec$ with $actor$ from $director$.",
+        "I think i've watched $movie_rec$ like 5000 times, $actor$ is just sooooo good.",
+        "$movie_rec$ must be soo good. I mean it has a metascore of $meta_score$."
     ],
-    "recommend_movie_playtime": [
-        "For a movie with less than $length$ playtime I recommend $movie_rec$",
-        "For just $length$ I recommend $movie_rec$"
-    ],
-    "recomment_movie_views": [
-        "For a movie which got a minimum of $views$ I recommend $movie_rec$",
-        "I can recommend you $movie_rec$ with a total of $views$ views.",
-        "With a huge amount of $views$ views I recmommend $move_rec$"
-    ],
-    "Top three movies from genre $genre$.": [
+    "recommend_movies_3": [
         "Here are the top three movies of $genre$: $movie_rec1$, $movie_rec2$, $movie_rec3$",
         "Choose wisely, all three films are impressive: $movie_rec1$, $movie_rec2$, $movie_rec3$",
         "I enjoyed the following three movies at most: $movie_rec1$, $movie_rec2$, $movie_rec3$"
+    ],
+    "recommend_movies_5": [
+        "$movie_rec1$, $movie_rec2$, $movie_rec3$, $movie_rec4$ and $movie_rec5$ all fit exactly what you are looking for :)."
+    ],
+    "recommend_empty": [
+        "Sorry, but i don't know any movie that fits your criteria. Maybe try again with less restrictions."
     ],
     "user_name_message": [
         "Sorry, your name is too lame. I will call you $user_name$"

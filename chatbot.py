@@ -9,6 +9,7 @@ from typing import Optional, Union
 import pickle
 import sklearn
 from Cleaner import clean_text 
+from recommender import recommend_by_str
 
 
 with open("Pickles/LR_Model", "rb") as f:
@@ -194,7 +195,7 @@ class Chatbot:
     def analyse_input(self, user_input: str):
     
         # sentiment
-        if (match := re.match(r'^(analyze|evaluate|check|determine|tell me).*:\s?(.+)?((using|with) (nb|lr))$', user_input, re.IGNORECASE)):
+        if (match := re.match(r'^(analyse|evaluate|check|determine|tell me).*:\s?(.+)?((using|with) (nb|lr))?$', user_input, re.IGNORECASE)):
             sentiment_sentence = match.group(2)
             model = match.group(5)
             if model not in ["nb", "lr"]:
@@ -207,11 +208,15 @@ class Chatbot:
         
         # quit
         elif (match := re.match(r'.*[Qq]uit', user_input)):
-            return "quit", None
+            return "exit", None
         
         # help
         elif (match := re.match(r'.*[Hh]elp', user_input)):
             return "help", None
+
+        # recommendations
+        elif (match := re.match(r'.*[Rr]ecommend.*', user_input)):
+            return "recommend", user_input
 
         # error 
         else:
@@ -279,7 +284,29 @@ class Chatbot:
                     print("\x1b[42;40minhere")
                     self.play_video(self.video_locations["exclamation"], message=[self.get_sentence("error_message"), new_sentence + "\n" + self.get_sentence(sent_query)])     
             
-            
+        if task == "recommend":
+            movies = recommend_by_str(context)
+            if movies == []:
+                self.play_video(self.video_locations["exclamation"], message=self.get_sentence("recommend_empty"))
+                
+            else:
+                movie = random.sample(movies, 1)
+                movie = movie[0]
+                movie_title = movie["Title"]
+                actors = ", ".join(movie["Cast"]["Stars"])
+                director = ", ".join(movie["Cast"]["Director"])
+                meta_score = movie["Metascore"]
+                genre = ", ".join(movie["Genre"])
+                
+                msg = self.get_sentence("recommend_movie")
+                msg = re.sub(r"\$movie_rec\$", movie_title, msg)
+                msg = re.sub(r"\$actor\$", actors, msg)
+                msg = re.sub(r"\$director\$", director, msg)
+                msg = re.sub(r"\$meta_score\$", str(meta_score), msg)
+                msg = re.sub(r"\$genre\$", genre, msg)
+                
+                self.play_video(self.video_locations["read"], message=msg)
+
         if task == "error":
             self.play_video(self.video_locations["scratches"], message=self.get_sentence("error_message"))
 
@@ -291,11 +318,14 @@ class Chatbot:
         sentence = random.choice(self.sentences[task])
         return sentence
 
-    def start_loop(self):
+    def start_loop(self, skip=False):
         
-        self.print_welcome_message()
+        if not skip:
+
+            self.print_welcome_message()
 
         print(self.pad_image(open(self.video_locations["idle_img"], "r").read(), self.term_size[1] - 2, self.term_size[0], self.get_sentence("welcome_message")))
+       
         print("\x1b[42;40m\n")
         self.user_input = input(f"\x1b[37;40m({self.user_name}) \x1b[38;5;118m➜ \x1b[37;40m")
         self.history["user"].append(self.user_input)
@@ -309,4 +339,4 @@ class Chatbot:
 
 if __name__ == "__main__":
     cb = Chatbot()
-    cb.start_loop()
+    cb.start_loop(skip=True)
