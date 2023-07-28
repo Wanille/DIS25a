@@ -339,4 +339,4 @@ class Chatbot:
 
 if __name__ == "__main__":
     cb = Chatbot()
-    cb.start_loop(skip=True)
+    cb.start_loop(skip=False)
