@@ -10,6 +10,7 @@
 - Give movie recommendations based on
   - Actors
   - Runtime
+  - ...
 - Is a great companion
 - Nice overlay
 
