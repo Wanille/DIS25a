@@ -27,7 +27,7 @@ pip install -r requirements.txt
 Run chatbot with `python chatbot.py`
 
 ### 📖 Manual installation
-Download Sentiment Analysis models manually from sciebo via `https://th-koeln.sciebo.de/s/s11L3TLmur4Sogx`.  
+Download Sentiment Analysis models manually from sciebo via `https://th-koeln.sciebo.de/s/lb8Kqv5Hjoteh0T/download`.  
 Or use `wget https://th-koeln.sciebo.de/s/lb8Kqv5Hjoteh0T/download -O Pickles.tar.gz`  
 Unzip using `gunzip Pickles.tar.gz`.  
 Use tar to extract files from archive `tar -xf Pickles.tar`.
