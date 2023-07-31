@@ -25,18 +25,6 @@
   * Integration from sentiment analysis into chatbot
   * Discussion
 
-## Todo implementation
-- [x] add regex
-- [ ] add recommendations
-- [x] update requirements.txt
-- [x] add installation script
-- [x] upload models to sciebo
-- [x] rewrite the help message with new regex conv for sentiment matching
-- [x] clean repo
-- [x] change lang for movie recommender (remove attr specific movie lang)
-- [ ] Test installer script on Mac/Windows(won't work)
-- [x] recommender "using|with" is needed rigth now change regex
-
 
 ## 🚀 Features
 - Predict sentiment of Movie Reviews with:
@@ -46,7 +34,6 @@
 - Give movie recommendations based on
   - Actors
   - Runtime
-  - ...
 - Is a great companion
 - Nice overlay
 
